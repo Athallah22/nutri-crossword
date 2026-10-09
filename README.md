@@ -199,38 +199,6 @@ Hasil kompilasi siap saji akan berada di folder `dist/` dan dapat dijalankan lan
 
 ---
 
-## Panduan Deployment
-
-Aplikasi adalah *Single Page Application (SPA)* statis murni yang dapat di-deploy secara instan dan gratis ke berbagai penyedia hosting modern:
-
-### Opsi 1: Vercel (Direkomendasikan)
-1. Push repositori ke GitHub (misal: `tts-gizi`).
-2. Masuk ke [vercel.com](https://vercel.com) dan klik **"Add New Project"**.
-3. Pilih repositori `tts-gizi`. Pengaturan Build Command (`npm run build`) dan Output Directory (`dist`) akan terdeteksi otomatis.
-4. Klik **"Deploy"**.
-
-### Opsi 2: Netlify
-1. Hubungkan repositori GitHub di [netlify.com](https://netlify.com).
-2. Set Build command: `npm run build` dan Publish directory: `dist`.
-3. Klik **"Deploy site"**.
-
----
-
-## Panduan Singkat untuk Fasilitator Kelas
-
-1. **Persiapan:** Hubungkan laptop ke proyektor kelas dan pastikan pengeras suara (*speaker*) aktif.
-2. **Mulai Game:** Klik **"Mulai Bermain"** di halaman beranda.
-3. **Mulai Ronde:** Berikan sebuah pena kepada salah satu peserta, lalu klik salah satu nomor soal pada papan TTS.
-4. **Oper Pena:** Musik otomatis berputar. Minta seluruh peserta mengoper pena secara estafet ke teman di sekitarnya.
-5. **Waktu Menjawab:** Saat musik berhenti seketika, peserta yang memegang pena berdiri dan membacakan jawabannya.
-6. **Penilaian:**
-   - Jika jawaban peserta **Benar**, fasilitator menekan tombol **"Benar (+100 Poin)"**.
-   - Jika peserta kesulitan, fasilitator dapat menekan tombol **"Buka Hint"** (maksimal 3x bantuan).
-   - Jika jawaban **Salah**, fasilitator dapat memilih untuk **"Lewati Soal"** atau **"Buka Kunci Jawaban (0 Poin)"**.
-7. **Selesai:** Setelah seluruh kotak terisi, modal selebrasi akan menampilkan total skor, jumlah jawaban benar/salah, dan pesan gizi penutup.
-
----
-
 ## Dokumen Pegangan Fasilitator
 
 Daftar seluruh soal dan kunci jawaban lengkap tersedia dalam format Microsoft Word yang siap dicetak:
