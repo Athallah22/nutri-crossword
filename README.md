@@ -1,16 +1,19 @@
-# TTS Gizi: Oper Pena & Musik
+<div align="center">
+  <img src="public/images/logo.png" alt="Logo TTS Gizi" width="160" />
 
-> **Media Edukasi Gizi Interaktif & Teka-Teki Silang Berbasis Web**
->
-> 🔗 **Live Demo:** [https://nutricross.vercel.app/](https://nutricross.vercel.app/)
+  # TTS Gizi: Oper Pena & Musik
 
-[![Live Demo](https://img.shields.io/badge/Demo-nutricross.vercel.app-2EAD67?style=for-the-badge&logo=vercel)](https://nutricross.vercel.app/)
-![Style: Neobrutalism](https://img.shields.io/badge/Style-Neobrutalism-yellow?style=for-the-badge)
-![React](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)
-![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?style=for-the-badge&logo=vite)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css)
-![Offline Ready](https://img.shields.io/badge/Offline-100%25%20Ready-success?style=for-the-badge)
+  > **Media Edukasi Gizi Interaktif & Teka-Teki Silang Berbasis Web**
+  >
+  > 🔗 **Live Demo:** [https://nutricross.vercel.app/](https://nutricross.vercel.app/)
+
+  [![Live Demo](https://img.shields.io/badge/Demo-nutricross.vercel.app-2EAD67?style=for-the-badge&logo=vercel)](https://nutricross.vercel.app/)
+  ![Style: Neobrutalism](https://img.shields.io/badge/Style-Neobrutalism-yellow?style=for-the-badge)
+  ![React](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)
+  ![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?style=for-the-badge&logo=vite)
+  ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css)
+</div>
 
 ---
 
