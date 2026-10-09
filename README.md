@@ -1,7 +1,10 @@
 # TTS Gizi: Oper Pena & Musik
 
 > **Media Edukasi Gizi Interaktif & Teka-Teki Silang Berbasis Web**
+>
+> 🔗 **Live Demo:** [https://nutricross.vercel.app/](https://nutricross.vercel.app/)
 
+[![Live Demo](https://img.shields.io/badge/Demo-nutricross.vercel.app-2EAD67?style=for-the-badge&logo=vercel)](https://nutricross.vercel.app/)
 ![Style: Neobrutalism](https://img.shields.io/badge/Style-Neobrutalism-yellow?style=for-the-badge)
 ![React](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)
