@@ -107,9 +107,11 @@ TTS-Gizi/
 │   │       ├── RoundStatus.tsx            # Visualizer banner musik aktif & giliran jawab
 │   │       ├── AnswerControls.tsx         # Tombol aksi fasilitator (Benar/Salah/Lewati)
 │   │       ├── ResetConfirmModal.tsx      # Modal konfirmasi reset Neobrutalism di tengah
-│   │       └── CompletionModal.tsx        # Modal selebrasi akhir & animasi confetti
+│   │       ├── CompletionModal.tsx        # Modal selebrasi akhir & ringkasan hasil
+│   │       └── AnswerReviewModal.tsx      # Modal kunci jawaban & pembahasan lengkap
 │   ├── data/
-│   │   └── puzzles.json                   # 5 Paket bank soal TTS terkurasi
+│   │   ├── puzzles.json                   # 5 Paket bank soal TTS Anemia Remaja Putri terkurasi
+│   │   └── Daftar_Soal_dan_Jawaban_TTS_Anemia_Remaja_Putri.docx # Dokumen Word acuan soal kurikulum
 │   ├── engine/
 │   │   ├── crosswordEngine.ts             # Generator matriks 2D & validasi sel
 │   │   ├── answerValidator.ts             # Logika normalisasi & pencocokan jawaban
@@ -125,7 +127,7 @@ TTS-Gizi/
 │   │   └── GamePage.tsx                   # Layar utama game (Zero-Scroll Viewport)
 │   ├── services/
 │   │   ├── audioService.ts                # Procedural Web Audio Synth & Audio Player
-│   │   ├── timerService.ts                # Monotonic countdown & acak musik 15-30s
+│   │   ├── timerService.ts                # Monotonic countdown 10 detik rata & timer ronde
 │   │   └── roundController.ts             # State machine orchestrator antar ronde
 │   ├── types/
 │   │   ├── puzzle.ts                      # Tipe data soal, arah, koordinat & matrix
@@ -136,7 +138,6 @@ TTS-Gizi/
 │   ├── App.tsx                            # Root application component & screen router
 │   ├── main.tsx                           # React 19 entry point
 │   └── index.css                          # Tailwind v4 setup & custom tokens
-├── Daftar_Soal_dan_Jawaban_TTS_Gizi.docx  # Dokumen Word pegangan cetak fasilitator
 ├── index.html                             # Entry HTML dengan metadata & font
 ├── package.json
 ├── tsconfig.json
@@ -231,29 +232,29 @@ Ketika nomor diklik:
 3. Ambil data soal.
 4. Set `selectedQuestionId`.
 5. Highlight seluruh cell yang terkait.
-6. Tentukan durasi acak.
+6. Tentukan durasi (10 detik rata).
 7. Mulai pemutaran audio.
 8. Mulai timer setelah audio berhasil diputar.
 9. Ubah status menjadi `PLAYING`.
 
 Jika nomor tidak valid atau sudah dijawab, jangan memulai audio.
 
-## 8. Random Timer
+## 8. Timer Ronde & Countdown Visual (10 Detik Rata)
 
-Rentang durasi:
+Durasi musik ronde oper pena dikonfigurasi 10 detik tetap (*flat*):
 
-- Minimum: 15 detik.
-- Maksimum: 30 detik.
+- Durasi: 10 detik rata (`FIXED_ROUND_DURATION = 10`).
+- UI Countdown: Nilai `durationRemainingSeconds` dihitung mundur dan ditampilkan secara real-time pada komponen UI (`RoundStatus.tsx`) lengkap dengan efek visual saat $\le 3$ detik.
 
 Contoh implementasi TypeScript:
 
-    export function randomRoundDuration(): number {
-      return Math.floor(Math.random() * 16) + 15;
+    export const FIXED_ROUND_DURATION = 10;
+
+    export function randomRoundDuration(min = 10, max = 10): number {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-Fungsi tersebut menghasilkan durasi bilangan bulat dari 15 sampai 30 detik.
-
-Durasi diacak sekali pada awal ronde dan tidak boleh berubah selama ronde berjalan.
+Durasi dimulai dari 10 detik pada awal ronde dan tidak berubah selama ronde berjalan.
 
 ### Prinsip timer
 
@@ -307,7 +308,7 @@ Urutan yang benar:
     Validasi soal
         │
         ▼
-    Pilih durasi 15–30 detik
+    Pilih durasi 10 detik rata
         │
         ▼
     Mulai audio

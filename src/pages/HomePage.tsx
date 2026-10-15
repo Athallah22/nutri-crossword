@@ -79,11 +79,11 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mb-10 text-[#171717] dark:text-[#F5F5F5] text-xs sm:text-sm font-black">
           <div className="flex items-center gap-2 bg-white dark:bg-[#1E1E20] px-4 py-2.5 rounded-lg border-[3px] border-[#171717] dark:border-[#3F3F46] shadow-[3px_3px_0px_#171717] dark:shadow-[3px_3px_0px_#000000]">
             <Apple className="w-4 h-4 text-[#FF765E] stroke-[2.5]" />
-            <span>Materi Gizi Remaja</span>
+            <span>Materi Anemia Remaja Putri</span>
           </div>
           <div className="flex items-center gap-2 bg-white dark:bg-[#1E1E20] px-4 py-2.5 rounded-lg border-[3px] border-[#171717] dark:border-[#3F3F46] shadow-[3px_3px_0px_#171717] dark:shadow-[3px_3px_0px_#000000]">
             <Activity className="w-4 h-4 text-[#2EAD67] stroke-[2.5]" />
-            <span>Musik Acak 15–30s</span>
+            <span>Musik 10s & Countdown UI</span>
           </div>
           <div className="flex items-center gap-2 bg-white dark:bg-[#1E1E20] px-4 py-2.5 rounded-lg border-[3px] border-[#171717] dark:border-[#3F3F46] shadow-[3px_3px_0px_#171717] dark:shadow-[3px_3px_0px_#000000]">
             <Heart className="w-4 h-4 text-[#E84C4F] stroke-[2.5]" />

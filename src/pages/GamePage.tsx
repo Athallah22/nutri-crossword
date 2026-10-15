@@ -53,6 +53,7 @@ export const GamePage: React.FC<GamePageProps> = ({
   } = useGame(puzzle);
 
   const [isAudioModalOpen, setIsAudioModalOpen] = useState(false);
+  const [isReviewingBoard, setIsReviewingBoard] = useState(false);
 
   const isRoundActive =
     gameState.roundStatus === "playing" ||
@@ -62,6 +63,20 @@ export const GamePage: React.FC<GamePageProps> = ({
   const hintsUsedForSelected = selectedQuestion
     ? gameState.hintsUsed[selectedQuestion.id] || 0
     : 0;
+
+  const handleRestart = () => {
+    setIsReviewingBoard(false);
+    if (onResetGame) {
+      onResetGame();
+    } else {
+      resetGame();
+    }
+  };
+
+  const handleNextPuzzle = () => {
+    setIsReviewingBoard(false);
+    onNextPuzzle?.();
+  };
 
   return (
     <div className="h-screen w-full bg-[#FFF9ED] dark:bg-[#121212] text-[#171717] dark:text-[#F5F5F5] flex flex-col justify-between select-none overflow-hidden transition-colors">
@@ -76,7 +91,7 @@ export const GamePage: React.FC<GamePageProps> = ({
         onToggleTheme={onToggleTheme}
         onOpenAudioSettings={() => setIsAudioModalOpen(true)}
         onOpenTutorial={onOpenTutorial}
-        onResetGame={onResetGame || resetGame}
+        onResetGame={handleRestart}
       />
 
       {/* Main Game Screen Content */}
@@ -140,13 +155,31 @@ export const GamePage: React.FC<GamePageProps> = ({
       />
 
       {/* Completion Modal */}
-      {gameState.completed && (
+      {gameState.completed && !isReviewingBoard && (
         <CompletionModal
           stats={stats}
-          onRestart={onResetGame || resetGame}
-          onNextPuzzle={onNextPuzzle}
+          questions={puzzle.questions}
+          puzzleTitle={puzzle.title}
+          incorrectQuestionIds={gameState.incorrectQuestionIds}
+          onRestart={handleRestart}
+          onNextPuzzle={onNextPuzzle ? handleNextPuzzle : undefined}
           onGoHome={onGoHome}
+          onReviewBoard={() => setIsReviewingBoard(true)}
         />
+      )}
+
+      {/* Floating Bottom Button When Reviewing Board */}
+      {gameState.completed && isReviewingBoard && (
+        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 animate-in fade-in slide-in-from-bottom-3 duration-200">
+          <button
+            type="button"
+            onClick={() => setIsReviewingBoard(false)}
+            className="flex items-center gap-2.5 px-6 py-3.5 bg-[#FFD84D] hover:bg-[#ffe066] text-[#171717] font-black rounded-xl border-[3px] border-[#171717] shadow-[4px_4px_0px_#171717] dark:shadow-[4px_4px_0px_#000000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all cursor-pointer text-sm sm:text-base"
+          >
+            <span className="text-xl">🏆</span>
+            <span>Buka Skor & Kunci Jawaban</span>
+          </button>
+        </div>
       )}
     </div>
   );

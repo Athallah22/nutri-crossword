@@ -82,12 +82,12 @@ Aplikasi mendukung **Dual Theme (Mode Terang & Mode Gelap)** bergaya Neobrutalis
 - Hero visual maskot emblem 3D "TTS GIZI" interaktif dengan bayangan tegas Neobrutalist.
 - Judul besar "TEKA-TEKI SILANG GIZI SEIMBANG" berbingkai bayangan tegas.
 - Tombol aksi utama: **Mulai Bermain** (Kuning `#FFD84D`) dan **Cara Bermain** (Putih `#FFFFFF`).
-- Indikator fitur: Materi Gizi Remaja, Musik Acak 15–30s, dan Ramah Proyektor.
+- Indikator fitur: Materi Anemia Remaja Putri, Musik 10s & Countdown UI, dan Ramah Proyektor.
 
 ### 4.2 Halaman Petunjuk (Tutorial Page)
 - 3 Kartu Langkah Neobrutalist:
   1. **Pilih Nomor Soal** (Fasilitator klik grid).
-  2. **Musik Berputar** (Siswa oper pena secara tertib).
+  2. **Musik Berputar** (Siswa oper pena secara tertib selama 10 detik dengan countdown di layar).
   3. **Musik Berhenti** (Siswa pemegang pena menjawab secara lisan).
 - Peringatan keselamatan kelas: dilarang melempar pena atau berlari di dalam kelas.
 - Tombol Mulai TTS Sekarang.
@@ -95,13 +95,13 @@ Aplikasi mendukung **Dual Theme (Mode Terang & Mode Gelap)** bergaya Neobrutalis
 ### 4.3 Layar Permainan (Game Screen)
 - **Game Header:** Menampilkan judul TTS Gizi, indikator nomor ronde, skor total, dan progres jumlah soal selesai. Dilengkapi tombol Fullscreen proyektor, Audio Settings, Tutorial, dan Reset Game.
 - **Spanduk Status Ronde (Round Status):** 
-  - Saat musik berputar: Warna kuning `#FFD84D`, animasi visualizer batang suara hitam tebal yang bergerak dinamis.
+  - Saat musik berputar: Warna kuning `#FFD84D`, animasi visualizer batang suara hitam tebal yang bergerak dinamis, serta badge **Countdown Timer** (10 detik menuju 0 detik) dengan efek peringatan visual saat sisa waktu $\le 3$ detik.
   - Saat musik berhenti: Warna biru `#A8D8FF`, tanda panggilan giliran menjawab.
 - **Crossword Board:** Papan grid TTS berbingkai hitam 4px tebal.
 - **Answer Controls:** Bar kontrol fasilitator di bagian bawah layar.
 - **Modals (Neobrutalism Popups):**
-  - *Reset Confirmation Modal (`ResetConfirmModal`):* Modal konfirmasi di tengah layar dengan backdrop Neobrutalist gelap transparan, tombol konfirmasi Coral Red (`#FF765E`), dan dukungan pintasan keyboard (`Enter`/`Escape`).
-  - *Completion Modal (`CompletionModal`):* Modal selebrasi dengan animasi confetti saat seluruh paket puzzle berhasil diselesaikan.
+  - *Completion Modal (`CompletionModal`):* Modal selebrasi dengan animasi confetti saat seluruh paket puzzle berhasil diselesaikan, lengkap dengan tombol aksi *Paket Soal Lain*, *Mainkan Lagi*, *Kunci Jawaban*, *Lihat Papan TTS*, dan *Beranda*.
+  - *Answer Review Modal (`AnswerReviewModal`):* Modal pembahasan kunci jawaban lengkap yang mengelompokkan soal Mendatar & Menurun, jawaban resmi beraksen tebal, nomor soal, kategori, pertanyaan lengkap, petunjuk edukasi ekstra (hint), dan indikator status terjawab.
 
 ## 5. Desain Grid TTS & Aturan Hubungan Kata (Crossword Matrix)
 

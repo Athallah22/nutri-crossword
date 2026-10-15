@@ -1,8 +1,10 @@
+export const FIXED_ROUND_DURATION = 10;
+
 /**
- * Generates a random integer duration between min and max (inclusive).
- * Default: 15 to 30 seconds as specified in PRD/Architecture.
+ * Generates a round duration in seconds.
+ * Default: 10 seconds flat.
  */
-export function randomRoundDuration(min = 15, max = 30): number {
+export function randomRoundDuration(min = 10, max = 10): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 

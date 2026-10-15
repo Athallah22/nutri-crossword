@@ -85,7 +85,7 @@ export const TutorialPage: React.FC<TutorialPageProps> = ({
                 Oper Pena di Kelas!
               </h3>
               <p className="text-xs sm:text-sm text-[#171717]/80 dark:text-[#F5F5F5]/70 font-bold leading-relaxed">
-                Selama musik berputar (acak 15–30 detik), seluruh siswa mengoper pena secara bergantian dengan tertib.
+                Selama musik berputar (durasi 10 detik dengan countdown di layar), seluruh siswa mengoper pena secara bergantian dengan tertib.
               </p>
             </div>
           </div>

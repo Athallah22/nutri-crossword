@@ -60,7 +60,7 @@ Peserta bertugas:
 4. Nomor soal yang dapat diklik.
 5. Petunjuk soal yang tampil setelah nomor dipilih.
 6. Musik yang dimulai otomatis ketika nomor soal dipilih.
-7. Durasi musik acak antara 15–30 detik.
+7. Durasi musik 10 detik rata dengan visual countdown timer pada UI.
 8. Musik berhenti otomatis ketika durasi berakhir.
 9. Indikator visual bahwa sesi oper pena sedang berlangsung.
 10. Tampilan kondisi ketika musik berhenti dan peserta harus menjawab.
@@ -100,14 +100,14 @@ Peserta bertugas:
 2. Sistem mengidentifikasi soal berdasarkan nomor dan arah, yaitu mendatar atau menurun.
 3. Panel petunjuk soal ditampilkan.
 4. Kotak jawaban yang berkaitan dengan soal diberi highlight.
-5. Sistem mengacak durasi musik antara 15–30 detik.
+5. Sistem menetapkan durasi musik 10 detik rata.
 6. Musik mulai diputar secara otomatis.
 
 ### Tahap 3 — Oper pena
 
 1. Peserta mengoper pena selama musik diputar.
 2. Sistem menampilkan indikator bahwa musik sedang berlangsung.
-3. Durasi musik tidak harus ditampilkan sebagai angka agar peserta tidak dapat memperkirakan waktu berhenti secara tepat.
+3. Sistem menampilkan countdown timer visual (10s menuju 0s) pada UI agar fasilitator dan siswa dapat memantau sisa waktu oper pena.
 4. Setelah durasi berakhir, musik berhenti secara otomatis.
 5. Sistem masuk ke status "Waktu Menjawab".
 
@@ -134,10 +134,12 @@ Permainan berakhir apabila seluruh soal wajib telah diselesaikan atau fasilitato
 Sistem menampilkan:
 - Jumlah soal selesai.
 - Jumlah jawaban benar.
-- Jumlah jawaban salah.
+- Jumlah jawaban salah / lewati.
 - Persentase penyelesaian & total skor.
-- Pesan penutup edukatif.
-- Opsi untuk memainkan ulang atau memilih paket soal berikutnya dari Bank Soal.
+- Pesan penutup edukatif gizi & pencegahan anemia.
+- **Opsi Kunci Jawaban & Pembahasan:** Menampilkan daftar lengkap seluruh soal Mendatar & Menurun, jawaban resmi, clue, hint, serta status penjawabannya.
+- **Opsi Lihat Papan TTS:** Menutup sementara modal untuk memproyeksikan grid TTS yang telah terisi penuh di layar kelas, dilengkapi tombol melayang untuk kembali ke ringkasan skor.
+- Opsi untuk memainkan ulang (*Mainkan Lagi*) atau memilih paket soal berikutnya dari Bank Soal (*Paket Soal Lain*).
 
 ## 6.1 Sistem Bantuan Soal (Hint) & Proteksi Anti-Bocoran (Anti-Spoil)
 
@@ -151,11 +153,16 @@ Aplikasi menyediakan tombol hint dengan sistem bertingkat 3 level yang adil:
 - Sistem akan menampilkan status **Proteksi Anti-Bocoran Aktif** dan hanya mengizinkan pembukaan **Petunjuk Teks (Level 2)** agar siswa tetap tertantang menebak huruf terakhir sendiri.
 - Jika kelas tetap tidak dapat menjawab setelah batas waktu berakhir, fasilitator dapat memilih tombol *"Salah"* -> *"Buka Kunci Jawaban (0 Poin)"*.
 
-## 6.2 Bank Soal Multi-Paket (Multi-Puzzle Bank)
+## 6.2 Bank Soal Multi-Paket (Bank Soal TTS: Anemia Remaja Putri)
 
-Aplikasi memiliki preset bank soal (*Puzzle Bank*) yang berisi beberapa paket soal gizi terkurasi:
-- Setiap paket soal berisi 7–9 pertanyaan teka-teki silang dengan struktur grid terhubung 100% tanpa tabrakan kata paralel (*zero collision*).
-- Sistem memilih paket soal secara acak saat permainan baru dimulai, dan menyediakan opsi *"Paket Soal Lain"* setelah permainan selesai untuk variasi pembelajaran di berbagai sesi kelas.
+Aplikasi memiliki preset bank soal (*Puzzle Bank*) terkurasi dengan 5 paket bertema **Pencegahan & Edukasi Anemia pada Remaja Putri**:
+1. **Paket 1 — Mengenal Anemia (8 Soal, Grid 16×14):** Mengenal anemia, kadar hemoglobin (Hb), gejala 5L, dan tanda fisik pucat.
+2. **Paket 2 — Zat Gizi & Sumber Zat Besi (9 Soal, Grid 13×13):** Mengenal zat besi, protein hewani/nabati, asam folat, vitamin C, tempe, bayam, dan hati.
+3. **Paket 3 — Penyebab & Dampak Anemia (8 Soal, Grid 15×14):** Memahami perdarahan menstruasi, thalasemia, pengikatan oksigen, gangguan konsentrasi belajar, dan rasa lemas.
+4. **Paket 4 — Pencegahan Anemia (10 Soal, Grid 12×17):** Pola makan bergizi seimbang beragam, konsumsi TTD mingguan malam sebelum tidur, serta menghindari teh, kopi, dan susu saat minum tablet tambah darah.
+5. **Paket 5 — Tablet Tambah Darah & Penanganan (8 Soal, Grid 14×14):** Peran dokter, pemeriksaan kadar Hb, terapi medis, suplemen TTD, dan pangan kaya zat besi.
+
+Seluruh paket soal dirancang dengan struktur grid terhubung 100% tanpa tabrakan kata paralel (*zero collision*), dengan margin sel padding di sekelilingnya. Sistem memilih paket soal secara acak saat permainan baru dimulai, dan menyediakan tombol *"Paket Soal Lain"* setelah permainan selesai.
 
 ## 6.3 Mode Gelap & Terang (Dark / Light Mode Support)
 
@@ -173,12 +180,9 @@ Musik hanya dipicu ketika fasilitator memilih nomor soal yang valid dan belum di
 
 ### 7.2 Durasi
 
-- Durasi minimum: 15 detik.
-- Durasi maksimum: 30 detik.
-- Durasi ditentukan secara acak pada setiap ronde.
-- Durasi baru diacak ketika ronde baru dimulai.
-
-Durasi diacak menggunakan rentang bilangan bulat 15–30 detik, termasuk kedua batas tersebut.
+- Durasi ronde: 10 detik rata (tetap).
+- Tampilan countdown: Dilengkapi indikator hitung mundur visual di UI (10 detik menuju 0 detik) dengan efek peringatan saat sisa waktu <= 3 detik.
+- Durasi dimulai ulang dari 10 detik setiap kali nomor soal baru dipilih.
 
 ### 7.3 Penghentian musik
 
@@ -235,18 +239,19 @@ Setiap nomor soal memiliki kuota maksimal **3 kali bantuan (Hint Level 1–3)**:
 
 Fasilitator dapat menekan tombol Hint kapan saja saat ronde berlangsung untuk membantu siswa yang mengalami kesulitan.
 
-## 10. Kategori Soal
+## 10. Kategori Soal (Materi Anemia Remaja Putri)
 
-- Zat gizi.
-- Sumber makanan.
-- Isi piring dan pola makan sehat.
-- Air dan hidrasi.
-- Vitamin dan mineral.
-- Anemia dan zat besi.
-- Kebiasaan hidup sehat.
-- Mitos dan fakta gizi.
+- **Kesehatan Remaja:** Definisi anemia, kerentanan remaja putri, dan siklus bulanan.
+- **Zat Gizi & Mineral:** Zat besi (heme & non-heme), protein, asam folat, dan vitamin C.
+- **Tanda & Gejala:** Gejala 5L (lelah, lemah, letih, lesu, lunglai), pusing, dan pucat.
+- **Istilah Sains & Anatomi:** Hemoglobin (Hb), sel darah merah, oksigen, dan thalasemia.
+- **Penyebab & Dampak:** Perdarahan menstruasi, penurunan daya konsentrasi belajar, dan rasa lemas.
+- **Pola Makan & Sumber Pangan:** Daging, ayam, ikan, hati, telur, tempe, bayam, dan buah.
+- **Program & Suplemen:** Tablet Tambah Darah (TTD), aturan minum mingguan, dan cara minum sebelum tidur.
+- **Kebiasaan Penghambat:** Menghindari konsumsi teh, kopi, atau susu bersamaan dengan TTD.
+- **Penanganan Medis:** Peran dokter, pemeriksaan laboratorium darah, dan terapi berkelanjutan.
 
-Semua soal harus sesuai dengan materi edukasi yang telah diperiksa oleh tenaga yang kompeten.
+Semua soal disesuaikan langsung dengan dokumen kurikulum gizi remaja putri dan telah divalidasi ke dalam bank soal aplikasi.
 
 ## 11. Kebutuhan Nonfungsional
 

@@ -1,6 +1,6 @@
 import React from "react";
 import type { RoundStatus as RoundStatusType } from "../../types/game";
-import { Music, VolumeX, AlertCircle, Sparkles } from "lucide-react";
+import { Music, VolumeX, AlertCircle, Sparkles, Timer } from "lucide-react";
 
 interface RoundStatusProps {
   status: RoundStatusType;
@@ -9,8 +9,11 @@ interface RoundStatusProps {
 
 export const RoundStatus: React.FC<RoundStatusProps> = ({
   status,
+  durationRemaining,
 }) => {
   if (status === "playing") {
+    const isUrgent = durationRemaining !== null && durationRemaining <= 3;
+
     return (
       <div className="w-full bg-[#FFD84D] text-[#171717] px-3.5 py-2 sm:py-2.5 rounded-xl border-[3px] border-[#171717] dark:border-[#3F3F46] shadow-[4px_4px_0px_#171717] dark:shadow-[4px_4px_0px_#000000] flex flex-col sm:flex-row items-center justify-between gap-2.5 animate-pulse">
         <div className="flex items-center space-x-2.5">
@@ -27,19 +30,43 @@ export const RoundStatus: React.FC<RoundStatusProps> = ({
           </div>
         </div>
 
-        {/* Dynamic Soundwave Visualizer Bars */}
-        <div className="flex items-center gap-1 h-6 bg-white border-[2px] border-[#171717] px-2.5 py-1 rounded-md shadow-[2px_2px_0px_#171717]">
-          {[40, 90, 60, 100, 75, 45, 85, 60, 95, 50].map((height, idx) => (
+        {/* Right side: Countdown Timer Badge & Visualizer */}
+        <div className="flex items-center gap-2">
+          {/* Countdown Timer Badge */}
+          {durationRemaining !== null && (
             <div
-              key={idx}
-              className="w-1.5 bg-[#171717] rounded-none animate-bounce"
-              style={{
-                height: `${height}%`,
-                animationDelay: `${idx * 0.1}s`,
-                animationDuration: "0.5s",
-              }}
-            />
-          ))}
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-lg border-[2px] border-[#171717] shadow-[2px_2px_0px_#171717] transition-all duration-200 ${
+                isUrgent
+                  ? "bg-[#FF765E] text-white animate-bounce shadow-[2px_2px_0px_#000000]"
+                  : "bg-white text-[#171717]"
+              }`}
+            >
+              <Timer className={`w-4 h-4 stroke-[2.5] ${isUrgent ? "animate-spin" : ""}`} />
+              <div className="flex items-baseline gap-1">
+                <span className="text-base sm:text-lg font-black tabular-nums leading-none">
+                  {durationRemaining}
+                </span>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider">
+                  detik
+                </span>
+              </div>
+            </div>
+          )}
+
+          {/* Dynamic Soundwave Visualizer Bars */}
+          <div className="flex items-center gap-1 h-7 bg-white border-[2px] border-[#171717] px-2.5 py-1 rounded-lg shadow-[2px_2px_0px_#171717]">
+            {[40, 90, 60, 100, 75, 45, 85, 60, 95, 50].map((height, idx) => (
+              <div
+                key={idx}
+                className="w-1.5 bg-[#171717] rounded-none animate-bounce"
+                style={{
+                  height: `${height}%`,
+                  animationDelay: `${idx * 0.1}s`,
+                  animationDuration: "0.5s",
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
     );

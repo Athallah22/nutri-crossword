@@ -4,7 +4,7 @@ import type { Puzzle, Question } from "../types/puzzle";
 import { buildCrosswordGrid } from "../engine/crosswordEngine";
 import { calculateGameStats } from "../engine/progressEngine";
 import { calculateScore } from "../engine/scoreEngine";
-import { MonotonicTimer, randomRoundDuration } from "../services/timerService";
+import { MonotonicTimer, FIXED_ROUND_DURATION } from "../services/timerService";
 import { audioService } from "../services/audioService";
 import { useAudio } from "./useAudio";
 import confetti from "canvas-confetti";
@@ -107,7 +107,7 @@ export function useGame(puzzle: Puzzle) {
       const q = questionMap.get(questionId);
       if (!q) return;
 
-      const duration = randomRoundDuration(15, 30);
+      const duration = FIXED_ROUND_DURATION;
 
       setGameState((prev) => ({
         ...prev,
